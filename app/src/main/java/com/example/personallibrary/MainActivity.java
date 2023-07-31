@@ -1,5 +1,6 @@
 package com.example.personallibrary;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.accessibility.AccessibilityViewCommand;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -44,9 +45,17 @@ public class MainActivity extends AppCompatActivity {
         book_author = new ArrayList<>();
 
         storeDataInArrays();
-        customAdapter = new CustomAdapter(MainActivity.this, book_id,book_title,book_author);
+        customAdapter = new CustomAdapter(MainActivity.this,this, book_id,book_title,book_author);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode ==1){
+            recreate();
+        }
     }
 
     void storeDataInArrays(){

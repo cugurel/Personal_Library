@@ -21,7 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_AUTHOR = "book_author";
 
 
-    public DatabaseHelper(@Nullable Context context) {
+    DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME,null,DATABASE_VERSION);
         this.context = context;
     }
@@ -66,5 +66,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return cursor;
+    }
+
+    void updateData(String row_id, String title, String author){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_TITLE, title);
+        cv.put(COLUMN_AUTHOR, author);
+
+        long result = db.update(TABLE_NAME, cv ," id=? ",new String[]{row_id});
+
+        if(result == -1){
+            Toast.makeText(context,"Hatalı İşlem!", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context,"Güncelleme Başarılı!", Toast.LENGTH_SHORT).show();
+        }
     }
 }
