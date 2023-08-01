@@ -51,4 +51,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/authorEditText2" />
+
+    <Button
+        android:id="@+id/delete_book"
+        android:onClick="deleteBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="257dp"
+        android:background="#FBFBFB"
+        android:text="Kitabı Sil"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/update_book" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

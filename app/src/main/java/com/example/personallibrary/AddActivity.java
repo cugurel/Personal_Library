@@ -29,6 +29,8 @@ public class AddActivity extends AppCompatActivity {
                 DatabaseHelper db = new DatabaseHelper(AddActivity.this);
                 db.addBook(title_input.getText().toString().trim(),
                         author_input.getText().toString().trim());
+                finish();
+
             }
         });
     }
